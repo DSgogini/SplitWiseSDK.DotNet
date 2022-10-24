@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace SplitWiseSDK.DotNet.Abstract
 {
-    public interface IUserClient
+    public interface IUserService
     {
-        public IEnumerable<User> GetCurrentUser();
+        Task<User> GetCurrentUserAsync();
     }
 }

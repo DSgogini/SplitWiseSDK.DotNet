@@ -33,5 +33,8 @@ namespace SplitWiseSDK.DotNet.Entity
         public string Locale { get; set; }
     }
 
+    internal class UserApiRespose
+    {
+        public User User { get; set; }
     }
 }
