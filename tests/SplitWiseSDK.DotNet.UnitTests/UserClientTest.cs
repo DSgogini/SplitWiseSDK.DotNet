@@ -1,11 +1,11 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SplitWiseSDK.DotNet.Abstract;
+using SplitwiseSDK.DotNet.Abstract;
 using System;
 using System.IO;
 using Xunit;
 
-namespace SplitWiseSDK.DotNet.UnitTests
+namespace SplitwiseSDK.DotNet.UnitTests
 {
     public class UserClientTest
     {
@@ -21,10 +21,10 @@ namespace SplitWiseSDK.DotNet.UnitTests
                 .Build();
 
             var services = new ServiceCollection();
-            services.AddSplitWise(x =>
+            services.AddSplitwise(x =>
             {
-                x.Version = _configuration.GetSection("SpitWiseOpts:Version").Value;// "v3.0";
-                x.ApiKey = _configuration.GetSection("SpitWiseOpts:APIKey").Value;
+                x.Version = _configuration.GetSection("SpitwiseOpts:Version").Value;// "v3.0";
+                x.ApiKey = _configuration.GetSection("SpitwiseOpts:APIKey").Value;
             });
             _serviceProvider = services.BuildServiceProvider();
 

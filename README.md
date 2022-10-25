@@ -1,2 +1,2 @@
-# SplitWiseSDK.DotNet
+# SplitwiseSDK.DotNet
 DotNet SDK for SpitWise

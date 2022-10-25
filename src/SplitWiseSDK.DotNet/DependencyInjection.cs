@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using SplitWiseSDK.DotNet.Abstract;
-using SplitWiseSDK.DotNet.Services;
+using SplitwiseSDK.DotNet.Abstract;
+using SplitwiseSDK.DotNet.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +8,13 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SplitWiseSDK.DotNet
+namespace SplitwiseSDK.DotNet
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddSplitWise(this IServiceCollection services, Action<SplitWiseClientOptions> options)
+        public static IServiceCollection AddSplitwise(this IServiceCollection services, Action<SplitwiseClientOptions> options)
         {
-            SplitWiseClientOptions clientOptions = new SplitWiseClientOptions();
+            SplitwiseClientOptions clientOptions = new();
             options(clientOptions);
 
             services.AddHttpClient<IUserService, UserService>(c =>

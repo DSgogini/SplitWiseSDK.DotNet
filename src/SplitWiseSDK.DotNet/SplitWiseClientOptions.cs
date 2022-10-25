@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SplitWiseSDK.DotNet
+namespace SplitwiseSDK.DotNet
 {
-    public class SplitWiseClientOptions
+    public class SplitwiseClientOptions
     {
         public string Version { get; set; } = "v3.0";
         public string ApiKey { get; set; }

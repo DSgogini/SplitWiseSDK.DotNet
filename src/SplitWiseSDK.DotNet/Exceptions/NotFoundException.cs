@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SplitWiseSDK.DotNet.Exceptions
+namespace SplitwiseSDK.DotNet.Exceptions
 {
     public class NotFoundException : Exception
     {

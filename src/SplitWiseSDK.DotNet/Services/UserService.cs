@@ -1,14 +1,14 @@
 ﻿using Newtonsoft.Json;
-using SplitWiseSDK.DotNet.Abstract;
-using SplitWiseSDK.DotNet.Entity;
-using SplitWiseSDK.DotNet.Exceptions;
+using SplitwiseSDK.DotNet.Abstract;
+using SplitwiseSDK.DotNet.Entity;
+using SplitwiseSDK.DotNet.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SplitWiseSDK.DotNet.Services
+namespace SplitwiseSDK.DotNet.Services
 {
     internal class UserService : IUserService
     {
