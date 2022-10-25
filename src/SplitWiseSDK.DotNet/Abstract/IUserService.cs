@@ -10,5 +10,6 @@ namespace SplitWiseSDK.DotNet.Abstract
     public interface IUserService
     {
         Task<User> GetCurrentUserAsync();
+        Task<User> GetUserByIdAsync(int id);
     }
 }

@@ -10,14 +10,6 @@ using System.Threading.Tasks;
 
 namespace SplitWiseSDK.DotNet
 {
-    public class SplitWiseClientOptions
-    {
-        public string Version { get; set; } = "v3.0";
-        public string ApiKey { get; set; }
-        public string ClientSecret { get; set; }
-        public string ConsumerKey { get; set; }
-    }
-
     public static class DependencyInjection
     {
         public static IServiceCollection AddSplitWise(this IServiceCollection services, Action<SplitWiseClientOptions> options)

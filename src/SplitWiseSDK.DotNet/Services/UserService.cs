@@ -18,6 +18,37 @@ namespace SplitWiseSDK.DotNet.Services
             _httpClient = httpClient;
         }
 
+        public async Task<User> GetUserByIdAsync(int id)
+        {
+            if (id == default)
+            {
+                throw new ArgumentNullException(nameof(id));
+            }
+
+            var response = await _httpClient.GetAsync($"get_user/{id}");
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonString = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<UserApiRespose>(jsonString).User;
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+            {
+                throw new UnauthorizedException("");
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                throw new NotFoundException("");
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
+            {
+                throw new ForbiddenException("");
+            }
+            else
+            {
+                throw new Exception();
+            }
+        }
+
         async Task<User> IUserService.GetCurrentUserAsync()
         {
             var response = await _httpClient.GetAsync("get_current_user");

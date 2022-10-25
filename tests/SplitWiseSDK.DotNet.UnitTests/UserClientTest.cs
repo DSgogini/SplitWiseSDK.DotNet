@@ -1,4 +1,3 @@
-
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SplitWiseSDK.DotNet.Abstract;
@@ -12,6 +11,7 @@ namespace SplitWiseSDK.DotNet.UnitTests
     {
         private readonly ServiceProvider _serviceProvider;
         private readonly IConfiguration _configuration;
+        private readonly IUserService _userService;
         public UserClientTest()
         {
             _configuration = new ConfigurationBuilder()
@@ -27,15 +27,25 @@ namespace SplitWiseSDK.DotNet.UnitTests
                 x.ApiKey = _configuration.GetSection("SpitWiseOpts:APIKey").Value;
             });
             _serviceProvider = services.BuildServiceProvider();
+
+            _userService = _serviceProvider.GetService<IUserService>() ?? throw new ArgumentNullException(nameof(IUserService));
         }
 
         [Fact]
-        public async void GetCurrentUserAsyncTest()
+        public async void GetCurrentUserAsync_Test()
         {
-            var userClient = _serviceProvider.GetService<IUserService>() ?? throw new ArgumentNullException(nameof(IUserService));
-            var currentUser = await userClient.GetCurrentUserAsync();
+            var currentUser = await _userService.GetCurrentUserAsync();
             Assert.NotNull(currentUser);
             Assert.True(currentUser.Id > 0);
+        }
+
+        [Fact]
+        public async void GetUserByIdAsync_Test()
+        {
+            int id = 14398256;
+            var user = await _userService.GetUserByIdAsync(id);
+            Assert.NotNull(user);
+            Assert.True(user.Id > 0);
         }
     }
 }

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace SplitWiseSDK.DotNet.Exceptions
 {
-    public class UnauthorizedException : Exception
+    public class NotFoundException : Exception
     {
-        public UnauthorizedException()
+        public NotFoundException()
         {
 
         }
-        
-        public UnauthorizedException(string message) : base(message)
+
+        public NotFoundException(string message) : base(message)
         {
 
         }
